@@ -5,7 +5,7 @@ import aocd
 
 
 def get_data():
-    return aocd.get_data("53616c7465645f5f51687d84c2dfe78a29cc10b8f7229b420668017a5b0fabfaeb360c5a2cd461d5f5898982f5a5db94", 9, 2017)
+    return aocd.get_data("session_id", 9, 2017)
 
 
 def process_stream(stream):
