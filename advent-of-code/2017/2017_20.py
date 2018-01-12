@@ -4,7 +4,7 @@ sys.path.insert(0, "/Library/Python/2.7/site-packages") #acod
 sys.path.insert(0, "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python") #acod dependency
 
 
-data = aocd.get_data("53616c7465645f5f51687d84c2dfe78a29cc10b8f7229b420668017a5b0fabfaeb360c5a2cd461d5f5898982f5a5db94", 20, 2017)
+data = aocd.get_data("session_id", 20, 2017)
 
 
 def process_data(data):
