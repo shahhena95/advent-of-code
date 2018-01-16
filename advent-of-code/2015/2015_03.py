@@ -4,8 +4,8 @@ with open('./inputs/day_03.txt') as f:
 
 def part1():
     X = Y = 0
-    visited = [(0, 0)] #(0,0) always visited
-    unique_houses_visited = 1 #house at (0,0)
+    visited = [(0, 0)]
+    unique_houses_visited = 1
 
     for c in instructions[0]:
         if c == '^':
@@ -23,7 +23,7 @@ def part1():
 
     print unique_houses_visited
 
-# part1()
+part1()
 
 
 def is_new_house(X, Y, visited):
@@ -35,34 +35,33 @@ def is_new_house(X, Y, visited):
 
 
 def part2():
-    santaX = santaY = 0
-    roboX = roboY = 0
-    visited = [(0,0)] #(0,0) always visited
-    unique_houses_visited = 1 #house at (0,0) visited by Santa and Robo-santa
-    santasTurn = True
+    santa_x = santa_y = 0
+    robo_x = robo_y = 0
+    visited = [(0, 0)]
+    unique_houses_visited = 1
+    santas_turn = True
 
     for c in instructions[0]:
         if c == '^':
-            santaY += int(santasTurn)
-            roboY += int(not santasTurn)
+            santa_y += int(santas_turn)
+            robo_y += int(not santas_turn)
 
         elif c == '<':
-            santaX -= int(santasTurn)
-            roboX -= int(not santasTurn)
+            santa_x -= int(santas_turn)
+            robo_x -= int(not santas_turn)
         elif c == 'v':
-            santaY -= int(santasTurn)
-            roboY -= int(not santasTurn)
+            santa_y -= int(santas_turn)
+            robo_y -= int(not santas_turn)
         elif c == '>':
-            santaX += int(santasTurn)
-            roboX += int(not santasTurn)
+            santa_x += int(santas_turn)
+            robo_x += int(not santas_turn)
 
-        if santasTurn:
-            unique_houses_visited += is_new_house(santaX, santaY, visited)
+        if santas_turn:
+            unique_houses_visited += is_new_house(santa_x, santa_y, visited)
         else:
-            unique_houses_visited += is_new_house(roboX, roboY, visited)
+            unique_houses_visited += is_new_house(robo_x, robo_y, visited)
 
-        santasTurn = not santasTurn
-
+        santas_turn = not santas_turn
 
     print unique_houses_visited
 
